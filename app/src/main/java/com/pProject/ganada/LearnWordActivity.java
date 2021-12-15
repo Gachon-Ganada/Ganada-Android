@@ -267,8 +267,16 @@ public class LearnWordActivity extends AppCompatActivity {
 
     //예문에서 단어에 강조표시 하는 함수
     private String emphasizeWord(String example, String word) {
+        Log.d("LearnWordActivity", example + word);
         int idx = example.indexOf(word);
-        String temp = example.substring(0, idx) + "\"" + word + "\"" + example.substring(idx + word.length());
+        String temp;
+
+        try {
+            temp = example.substring(0, idx) + "\"" + word + "\"" + example.substring(idx + word.length());
+        } catch (Exception e) {
+            temp = example;
+        }
+
 
         return temp;
     }
